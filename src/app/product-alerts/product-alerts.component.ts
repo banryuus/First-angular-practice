@@ -2,7 +2,7 @@
 AGREGAR INPUT ACÁ ARRIBA, al lado de component y de OnInit. De lo contrario, angular
 no va a saber que lo que realmente estamos tratando de hacer es importar la info de nuestro parent*/
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 //Acá lo que estamos haciendo es importar de nuestro elemento padre
 import { Product } from '../products';
@@ -18,4 +18,7 @@ export class ProductAlertsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  @Input() product: Product | undefined;
+  @Output() notify = new EventEmitter();
 }
