@@ -1,5 +1,7 @@
 <h2>Products</h2>
-<!--Impotante: cuando usamos ngFor-->
+<!--Impotante: cuando usamos ngFor para hacer referencia a una colección dentro de un div, 
+el scope de ese ngFor queda DENTRO de ese div. tener mucho cuidado de en dónde incorporamos
+los demás elementos. Si quedan fuera del div, quedan fuera de alcance -->
 <div *ngFor="let product of products">
   <h3>
     <a [title]="product.name + ' details'">
@@ -7,7 +9,9 @@
     </a>
   </h3>
 
-
+<!--Agregamos todo lo que aparezca en todas las ocurrencias de description, siempre y cuando
+exista información que mostrar. Por eso usamos ngIf, para asegurarnos de que se cree un nuevo
+p sólamente si existe algun description para mostrar-->
 <p *ngIf="product.description">
   Description: {{ product.description }}
 </p>
